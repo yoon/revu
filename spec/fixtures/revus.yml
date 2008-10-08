@@ -1,0 +1,23 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  effort: 1.5
+  academic_value: 1.5
+  author_rank_score: 1.5
+  impact_factor: 1.5
+  role: 1.5
+  score: 1.5
+  funding_modifier: 1.5
+  pi_status: 1.5
+  type: MyString
+
+two:
+  effort: 1.5
+  academic_value: 1.5
+  author_rank_score: 1.5
+  impact_factor: 1.5
+  role: 1.5
+  score: 1.5
+  funding_modifier: 1.5
+  pi_status: 1.5
+  type: MyString
