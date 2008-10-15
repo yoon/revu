@@ -1,0 +1,18 @@
+http://bioruby.open-bio.org
+
+require 'bio'
+ 
+keywords = ARGV.join(' ')
+ 
+options = {
+  'maxdate' => '2003/05/31',
+  'retmax' => 1000,
+}
+ 
+entries = Bio::PubMed.esearch(keywords, options)
+ 
+Bio::PubMed.efetch(entries).each do |entry|
+  medline = Bio::MEDLINE.new(entry)
+  reference = medline.reference
+  puts reference.bibtex
+end
