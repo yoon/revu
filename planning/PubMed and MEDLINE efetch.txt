@@ -16,3 +16,88 @@ Bio::PubMed.efetch(entries).each do |entry|
   reference = medline.reference
   puts reference.bibtex
 end
+
+=====
+efetch(ids, hash = {})
+
+Retrieve PubMed entry by PMID and returns MEDLINE formatted string using entrez efetch. Multiple PubMed IDs can be provided:
+
+Bio::PubMed.efetch(123)
+Bio::PubMed.efetch([123,456,789])
+
+Arguments:
+* ids: list of PubMed IDs (required)
+Returns:  Array of MEDLINE formatted String
+
+=====
+esearch(str, hash = {})
+
+Search the PubMed database by given keywords using E-Utils and returns an array of PubMed IDs.
+
+For information on the possible arguments, see eutils.ncbi.nlm.nih.gov/entrez/query/static/esearch_help.html#PubMed
+
+Arguments:
+
+* id: query string (required)
+* field
+* reldate
+* mindate
+* maxdate
+* datetype
+* retstart
+* retmax (default 100)
+* retmode
+* rettype
+
+Returns:	array of PubMed IDs or a number of results
+
+=====
+
+reference()
+returns a Reference object.
+hash['authors']     = authors
+hash['title']       = title
+hash['journal']     = journal
+hash['volume']      = volume
+hash['issue']       = issue
+hash['pages']       = pages
+hash['year']        = year
+hash['pubmed']      = pmid
+hash['medline']     = ui
+hash['abstract']    = abstract
+hash['mesh']        = mesh
+hash['affiliations'] = affiliations
+
+date()
+dp()
+DP - Publication Date
+  The date the article was published.
+
+doi()
+AID - Article Identifier
+  Article ID values may include the pii (controlled publisher identifier)
+  or doi (Digital Object Identifier).
+
+mh()
+MH - MeSH Terms
+  NLM's controlled vocabulary.
+
+pii()
+
+pt()
+PT - Publication Type
+  The type of material the article represents.
+
+publication_type()
+Alias for pt
+
+so()
+SO - Source
+  Composite field containing bibliographic information.
+
+source()
+Alias for so
+
+ta()
+TA - Journal Title Abbreviation
+  Standard journal title abbreviation.
