@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20081008215031) do
+ActiveRecord::Schema.define(:version => 20081015163814) do
 
   create_table "people", :force => true do |t|
     t.string   "name"
@@ -32,6 +32,8 @@ ActiveRecord::Schema.define(:version => 20081008215031) do
     t.float    "pi_status"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.date     "starts_on"
+    t.date     "ends_on"
   end
 
 end
