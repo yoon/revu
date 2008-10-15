@@ -7,8 +7,17 @@ class Revu < ActiveRecord::Base
   validates_numericality_of :revuable_id
   validates_numericality_of :person_id
   validates_numericality_of :effort, :academic_value
-  # validates_numericality_of :author_rank_score, :impact_factor #Publication
-  # validates_numericality_of :role #Administrative
-  # validates_numericality_of :score #Teaching
-  # validates_numericality_of :funding_modifier, :pi_status #Research
+
+end
+class PublicationRevu < Revu
+  validates_numericality_of :author_rank_score, :impact_factor
+end
+class AdministrativeRevu < Revu
+  validates_numericality_of :role
+end
+class TeachingRevu < Revu
+  validates_numericality_of :score
+end
+class ResearchRevu < Revu
+  validates_numericality_of :funding_modifier, :pi_status
 end
