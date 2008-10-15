@@ -1,16 +1,18 @@
 class Person < ActiveRecord::Base
+  # Associations
   has_many :revus
   
+  # Instance methods
   def revu_totals
     total = 0.0
     revu_subtotals.map{|d_st| [ d_st[0], total+=d_st[1] ]}
   end
   def revu_total(date = Date.today)
-    revu_subtotals.inject(0.0) {|sum,d_st| d_st[0].to_date <= date.to_date ? sum + d_st[1] : sum }
+    revu_subtotals.inject(0.0) {|sum, d_st| (d_st[0] <= date.to_date) ? sum + d_st[1] : sum }
   end
 
   private
-  
+  # Private methods
   def revu_subtotals
     h = {}
     revus.each do |revu|

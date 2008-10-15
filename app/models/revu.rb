@@ -16,7 +16,7 @@ class Revu < ActiveRecord::Base
   # Instance_methods
   def status(date = Date.today)
     # :current is inclusive of records starting and ending today
-    (!self.ends_on.nil? and self.ends_on < date) ? :past : (!self.starts_on.nil? and self.starts_on > date) ? :future : :current
+    (!self.ends_on.nil? and self.ends_on < date.to_date) ? :past : (!self.starts_on.nil? and self.starts_on > date.to_date) ? :future : :current
   end
 end
 class PublicationRevu < Revu
