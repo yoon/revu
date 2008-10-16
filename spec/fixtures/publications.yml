@@ -1,0 +1,41 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  authors: MyText
+  title: MyText
+  journal: MyString
+  volume: MyString
+  issue: MyString
+  pages: MyString
+  year: MyString
+  pubmed: MyString
+  medline: MyString
+  abstract: MyText
+  mesh: MyText
+  affiliations: MyText
+  published_on: 2008-10-16
+  doi: MyText
+  pii: MyText
+  publication_type: MyString
+  source: MyText
+  journal_title_abbreviation: MyString
+
+two:
+  authors: MyText
+  title: MyText
+  journal: MyString
+  volume: MyString
+  issue: MyString
+  pages: MyString
+  year: MyString
+  pubmed: MyString
+  medline: MyString
+  abstract: MyText
+  mesh: MyText
+  affiliations: MyText
+  published_on: 2008-10-16
+  doi: MyText
+  pii: MyText
+  publication_type: MyString
+  source: MyText
+  journal_title_abbreviation: MyString

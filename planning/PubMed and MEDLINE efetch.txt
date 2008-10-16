@@ -65,39 +65,22 @@ hash['year']        = year
 hash['pubmed']      = pmid
 hash['medline']     = ui
 hash['abstract']    = abstract
-hash['mesh']        = mesh
+hash['mesh']        = mesh #MeSH Terms NLM's controlled vocabulary.
 hash['affiliations'] = affiliations
 
-date()
-dp()
-DP - Publication Date
-  The date the article was published.
 
-doi()
-AID - Article Identifier
-  Article ID values may include the pii (controlled publisher identifier)
-  or doi (Digital Object Identifier).
+dp() date()
+DP - Publication Date The date the article was published.
 
-mh()
-MH - MeSH Terms
-  NLM's controlled vocabulary.
-
+doi() 
 pii()
+AID - Article Identifier Article ID values may include the pii (controlled publisher identifier) or doi (Digital Object Identifier).
 
-pt()
-PT - Publication Type
-  The type of material the article represents.
+pt() publication_type()
+PT - Publication Type The type of material the article represents.
 
-publication_type()
-Alias for pt
-
-so()
-SO - Source
-  Composite field containing bibliographic information.
-
-source()
-Alias for so
+so() source()
+SO - Source Composite field containing bibliographic information.
 
 ta()
-TA - Journal Title Abbreviation
-  Standard journal title abbreviation.
+TA - Journal Title Abbreviation Standard journal title abbreviation.

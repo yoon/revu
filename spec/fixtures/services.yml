@@ -1,0 +1,19 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  person_id: 1
+  title: MyText
+  organization: MyText
+  description: MyText
+  service_type: MyString
+  starts_on: 2008-10-16
+  ends_on: 2008-10-16
+
+two:
+  person_id: 1
+  title: MyText
+  organization: MyText
+  description: MyText
+  service_type: MyString
+  starts_on: 2008-10-16
+  ends_on: 2008-10-16
