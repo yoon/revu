@@ -17,9 +17,9 @@ class Person < ActiveRecord::Base
     h = {}
     revus.each do |revu|
       h[revu.starts_on] ||= 0.0
-      h[revu.starts_on] += revu.score
+      h[revu.starts_on] += revu.value
       h[revu.ends_on+1] ||= 0.0
-      h[revu.ends_on+1] -= revu.score
+      h[revu.ends_on+1] -= revu.value
     end
     h.sort
   end

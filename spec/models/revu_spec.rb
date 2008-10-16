@@ -1,6 +1,6 @@
 require File.expand_path(File.dirname(__FILE__) + '/../spec_helper')
 
-describe Revu do
+describe Revu, "validations" do
   before(:each) do
     @valid_attributes = {
       :revuable_id => 1,
@@ -73,6 +73,29 @@ describe Revu do
     %w(effort academic_value funding_modifier pi_status).each do |attr|
       @rr.send("#{attr}=", nil)
       @rr.should have(1).errors_on(attr.intern)
+    end
+  end
+end
+describe Revu, "" do
+  before(:each) do
+    @valid_attributes = {
+      :revuable_id => 1,
+      :person_id => 1,
+      :effort => "1.5",
+      :academic_value => "1.5",
+      :author_rank_score => "1.5",
+      :impact_factor => "1.5",
+      :role => "1.5",
+      :score => "1.5",
+      :funding_modifier => "1.5",
+      :pi_status => "1.5",
+      :type => "value for type"
+    }
+  end
+  it "should default to 0.0 for all numeric attributs" do
+    @r = Revu.new
+    %w(effort academic_value author_rank_score impact_factor role score funding_modifier pi_status).each do |attr|
+      @r.send(attr).should == 0.0
     end
   end
 end
