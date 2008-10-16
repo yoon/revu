@@ -76,7 +76,7 @@ describe Revu, "validations" do
     end
   end
 end
-describe Revu, "" do
+describe Revu, "initializing" do
   before(:each) do
     @valid_attributes = {
       :revuable_id => 1,
@@ -97,5 +97,41 @@ describe Revu, "" do
     %w(effort academic_value author_rank_score impact_factor role score funding_modifier pi_status).each do |attr|
       @r.send(attr).should == 0.0
     end
+  end
+end
+describe Revu, "values" do
+  before(:each) do
+    @valid_attributes = {
+      :revuable_id => 1,
+      :person_id => 1,
+      :effort => "1.5",
+      :academic_value => "2.5",
+      :author_rank_score => "3.5",
+      :impact_factor => "4.5",
+      :role => "5.5",
+      :score => "6.5",
+      :funding_modifier => "7.5",
+      :pi_status => "8.5",
+      :type => "value for type"
+    }
+  end
+  it "should be compute value using effort, academic_value, author_rank_score and impact_factor for PublicationRevu" do
+    @pr = PublicationRevu.create!(@valid_attributes)
+    @pr.value.should == 1.5*2.5*3.5*4.5
+  end
+  
+  it "should be compute value using effort, academic_value, and role for AdministrativeRevu" do
+    @ar = AdministrativeRevu.create!(@valid_attributes)
+    @ar.value.should == 1.5*2.5*5.5
+  end
+  
+  it "should be compute value using effort, academic_value, and score for TeachingRevu" do
+    @tr = TeachingRevu.create!(@valid_attributes)
+    @tr.value.should == 1.5*2.5*6.5
+  end
+  
+  it "should be compute value using effort, academic_value, funding_modifier and pi_status for Research Revu" do
+    @rr = ResearchRevu.create!(@valid_attributes)
+    @rr.value.should == 1.5*2.5*7.5*8.5
   end
 end
