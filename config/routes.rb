@@ -11,4 +11,7 @@ ActionController::Routing::Routes.draw do |map|
     map.update_activity   '/:activity_type/:activity_id',       :conditions => put, :requirements => req, :action => "update"
     map.destroy_activity  '/:activity_type/:activity_id',       :conditions => del, :requirements => req, :action => "destroy"
   end
+  
+  map.resources :cvs, :controller => 'cvs'
+
 end

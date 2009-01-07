@@ -1,0 +1,12 @@
+<h1>Editing cv</h1>
+
+<% form_for(@cv) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.submit "Update" %>
+  </p>
+<% end %>
+
+<%= link_to 'Show', @cv %> |
+<%= link_to 'Back', cvs_path %>
