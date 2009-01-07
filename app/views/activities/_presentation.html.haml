@@ -15,7 +15,7 @@
 =f.text_field :location          #:text
 %br
 =f.label :presentation_type
-=f.text_field :presentation_type #:string(255)
+=f.select :presentation_type, Presentation.types, :include_blank => true #:string(255)
 %br
 =f.label :presented_on
 =f.text_field :presented_on      #:date

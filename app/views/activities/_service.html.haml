@@ -12,7 +12,7 @@
 =f.text_field :organization #:text
 %br
 =f.label :service_type
-=f.text_field :service_type #:string(255)
+=f.select :service_type, Service.types, :include_blank => true #:string(255)
 %br
 =f.label :starts_on
 =f.text_field :starts_on    #:date

@@ -16,9 +16,8 @@
 #
 
 class Service < Activity
-  has_one :revu, :as => :activity
-  
-  def service_types
+
+  def self.types
     [ "committee",
       "national society",
       "regional society",

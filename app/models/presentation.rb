@@ -16,10 +16,10 @@
 #
 
 class Presentation < Activity
-  has_one :revu, :as => :activity
+
   alias_attribute :date, :presented_on
   
-  def presentation_types
+  def self.types
     [ "invited lecture", 
       "scientific exhibit",
       "peer-reviewed oral presentation",

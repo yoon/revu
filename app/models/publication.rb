@@ -28,8 +28,7 @@
 #
 
 class Publication < Activity
-  has_one :revu, :as => :activity
-  
+
   alias_attribute :pubmed, :pubmed_identiifer
   alias_attribute :medline, :medline_identifier
   alias_attribute :doi, :digital_object_identifier
@@ -37,7 +36,7 @@ class Publication < Activity
   alias_attribute :ta, :journal_abbreviation
   alias_attribute :date, :published_on
     
-  def publication_types
+  def self.types
     [ "peer-reviewed",
       "non peer-reviewed",
       "book chapter",

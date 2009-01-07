@@ -1,7 +1,10 @@
 class Activity < ActiveRecord::Base
   include TinyCode
-  
   self.abstract_class = true
+  
+  # Associations
+  has_one :revu, :as => :activity
+  has_many :citations, :as => :activity
   
   # Instance methods
   def initialize(*attrs)

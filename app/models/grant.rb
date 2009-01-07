@@ -19,9 +19,8 @@
 #
 
 class Grant < Activity
-    
-  has_one :revu, :as => :activity
-  def grant_types
+  
+  def self.types
     [ "NIH/RO1",
       "NIH training",
       "NMH",

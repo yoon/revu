@@ -48,7 +48,7 @@
 =f.text_field :source                          #:text
 %br
 =f.label :publication_type
-=f.text_field :publication_type                #:string(255)
+=f.select :publication_type, Publication.types, :include_blank => true                #:string(255)
 %br
 =f.label :year
 =f.text_field :year                            #:string(255)
