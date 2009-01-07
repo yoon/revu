@@ -1,0 +1,16 @@
+!!!
+%html
+  %head
+    %title= @title
+    = @javascripts.blank? ? "" : javascript_include_tag(@javascripts)
+    = yield :head
+    -#= stylesheet_link_tag ""
+    = @stylesheets.blank? ? "" : stylesheet_link_tag(@stylesheets)
+    %style{:type => "text/css"}
+      /
+        = yield :styles
+    %body
+      #container
+        #content
+          %h1= @title
+          = yield

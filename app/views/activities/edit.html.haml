@@ -1,4 +1,4 @@
-%h1= "Edit #{@klass_name} #{@activity.identifier}"
+- title_helper "Edit #{@klass_name} #{@activity.identifier}"
 
 - form_for(@klass_name, @activity, :url => update_activity_path(@klass_name, @activity.identifier), :html => {:method => :put} ) do |f|
   = f.error_messages
