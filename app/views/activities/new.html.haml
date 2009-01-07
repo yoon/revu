@@ -1,6 +1,6 @@
 %h1= "New #{@klass.name.downcase}"
 
-- form_for(@klass.name.to_sym, @activity, edit_activity_path(@activity, :activity_type => @klass)) do |f|
+- form_for(@klass.name.to_sym, @activity) do |f|
   = f.error_messages
   %p 
     = f.submit "Create"

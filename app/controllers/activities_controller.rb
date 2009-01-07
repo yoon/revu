@@ -5,7 +5,7 @@ class ActivitiesController < ApplicationController
   before_filter :find_activity, :except => :index
   
   def index
-    @activities = []
+    @activities = Grant.find(:all) + Publication.find(:all) + Presentation.find(:all) + Service.find(:all)
   
     respond_to do |format|
       format.html # index.html.erb
@@ -46,7 +46,7 @@ class ActivitiesController < ApplicationController
     respond_to do |format|
       if @activity.save
         flash[:notice] = 'Activity was successfully created.'
-        format.html { redirect_to(@activity) }
+        format.html { redirect_to(activites_path) }
         format.xml  { render :xml => @activity, :status => :created, :location => @activity }
       else
         format.html { render :action => "new" }
@@ -61,7 +61,7 @@ class ActivitiesController < ApplicationController
     respond_to do |format|
       if @activity.update_attributes(params[:activity])
         flash[:notice] = 'Activity was successfully updated.'
-        format.html { redirect_to(@activity) }
+        format.html { redirect_to(activities_path) }
         format.xml  { head :ok }
       else
         format.html { render :action => "edit" }
@@ -76,7 +76,7 @@ class ActivitiesController < ApplicationController
     @activity.destroy
 
     respond_to do |format|
-      format.html { redirect_to(activities_url) }
+      format.html { redirect_to(activities_path) }
       format.xml  { head :ok }
     end
   end
@@ -85,6 +85,7 @@ class ActivitiesController < ApplicationController
 
   def find_activity
     @klass = params[:activity_type].capitalize.constantize
+    @klass_name = @klass.name.downcase
     @activity = @klass.find(params[:activity_id]) if params.has_key?(:activity_id)
   end
   
