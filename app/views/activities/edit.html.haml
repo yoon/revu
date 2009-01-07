@@ -2,6 +2,7 @@
 
 - form_for(@klass_name, @activity, :url => update_activity_path(@klass_name, @activity.identifier), :html => {:method => :put} ) do |f|
   = f.error_messages
+  = render :partial => @klass_name, :locals => {:f => f}
   %p
     = f.submit "Update"
     = link_to 'Cancel', activities_path

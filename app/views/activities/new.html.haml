@@ -2,6 +2,7 @@
 
 - form_for(@klass.name.to_sym, @activity) do |f|
   = f.error_messages
+  = render :partial => @klass_name, :locals => {:f => f}
   %p 
     = f.submit "Create"
     = link_to 'Cancel', activities_path
