@@ -1,0 +1,5 @@
+create cv model
+allow different cv versions
+when changing item, show what cv's its on
+think of name for cv item cv join table
+add teaching model
