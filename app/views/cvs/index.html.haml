@@ -1,18 +1,7 @@
-<h1>Listing cvs</h1>
+- title_helper "Listing CVs"
 
-<table>
-  <tr>
-  </tr>
+%ul
+  - for cv in @cvs
+    %li= link_to cv.identifier, edit_cv_path(cv)
 
-<% for cv in @cvs %>
-  <tr>
-    <td><%= link_to 'Show', cv %></td>
-    <td><%= link_to 'Edit', edit_cv_path(cv) %></td>
-    <td><%= link_to 'Destroy', cv, :confirm => 'Are you sure?', :method => :delete %></td>
-  </tr>
-<% end %>
-</table>
-
-<br />
-
-<%= link_to 'New cv', new_cv_path %>
+=link_to 'New CV', new_cv_path

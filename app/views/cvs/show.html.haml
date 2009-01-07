@@ -1,3 +1,4 @@
+- title_helper "Show CV #{@cv.identifier}"
 
-<%= link_to 'Edit', edit_cv_path(@cv) %> |
-<%= link_to 'Back', cvs_path %>
+= link_to 'Edit', edit_cv_path(@cv)
+= link_to 'CVs', cvs_path

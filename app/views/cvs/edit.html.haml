@@ -1,12 +1,11 @@
-<h1>Editing cv</h1>
+- title_helper "Edit CV #{@cv.identifier}"
 
-<% form_for(@cv) do |f| %>
-  <%= f.error_messages %>
-
-  <p>
-    <%= f.submit "Update" %>
-  </p>
-<% end %>
-
-<%= link_to 'Show', @cv %> |
-<%= link_to 'Back', cvs_path %>
+- form_for(@cv) do |f|
+  = f.error_messages
+  %p
+    = f.submit "Update"
+    = link_to 'Cancel', cvs_path
+%br
+%p= link_to 'Destroy', @cv, :confirm => 'Are you sure?', :method => :delete
+    
+-# link_to 'Show', @cv

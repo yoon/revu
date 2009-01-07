@@ -1,6 +1,8 @@
 class CvsController < ApplicationController
   before_filter :find_cv, :except => [:index, :new, :create]
 
+  layout 'activities'
+  
   # GET /cvs
   # GET /cvs.xml
   def index
