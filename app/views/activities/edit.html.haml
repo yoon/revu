@@ -1,9 +1,9 @@
-%h1= "Edit #{@klass_name} #{@activity.id}"
+%h1= "Edit #{@klass_name} #{@activity.identifier}"
 
-- form_for(@klass_name, @activity, :url => update_activity_path(@klass_name, @activity.id), :html => {:method => :put} ) do |f|
+- form_for(@klass_name, @activity, :url => update_activity_path(@klass_name, @activity.identifier), :html => {:method => :put} ) do |f|
   = f.error_messages
   = f.submit "Update"
 
-= link_to 'show', show_activity_path(@klass_name, @activity.id)
+= link_to 'show', show_activity_path(@klass_name, @activity.identifier)
 |
 = link_to 'back', activities_path

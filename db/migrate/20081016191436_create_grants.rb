@@ -4,6 +4,7 @@ class CreateGrants < ActiveRecord::Migration
       t.integer :person_id
       
       # Identification
+      t.string :identifier
       t.text :title
       t.text :description
       

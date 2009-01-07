@@ -15,7 +15,7 @@
 #  updated_at   :datetime
 #
 
-class Service < ActiveRecord::Base
+class Service < Activity
   has_one :revu, :as => :activity
   
   def service_types

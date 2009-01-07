@@ -4,9 +4,9 @@
 %table 
   - for activity in @activities
     %tr 
-      %td= link_to 'Show', show_activity_path(activity.class.name.downcase, activity.id)
-      %td= link_to 'Edit', edit_activity_path(activity.class.name.downcase, activity.id)
-      %td= link_to 'Destroy', destroy_activity_path(activity.class.name.downcase, activity.id), :confirm => 'Are you sure?', :method => :delete
+      %td= link_to 'Show', show_activity_path(activity.class.name.downcase, activity.identifier)
+      %td= link_to 'Edit', edit_activity_path(activity.class.name.downcase, activity.identifier)
+      %td= link_to 'Destroy', destroy_activity_path(activity.class.name.downcase, activity.identifier), :confirm => 'Are you sure?', :method => :delete
 
 %ul
   %li= link_to 'New grant', new_activity_path(:activity_type => "grant")

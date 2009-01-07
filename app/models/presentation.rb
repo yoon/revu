@@ -15,7 +15,7 @@
 #  updated_at        :datetime
 #
 
-class Presentation < ActiveRecord::Base
+class Presentation < Activity
   has_one :revu, :as => :activity
   alias_attribute :date, :presented_on
   

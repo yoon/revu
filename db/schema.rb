@@ -13,6 +13,7 @@ ActiveRecord::Schema.define(:version => 20081016191436) do
 
   create_table "grants", :force => true do |t|
     t.integer  "person_id"
+    t.string   "identifier"
     t.text     "title"
     t.text     "description"
     t.text     "pi"
@@ -34,6 +35,7 @@ ActiveRecord::Schema.define(:version => 20081016191436) do
 
   create_table "presentations", :force => true do |t|
     t.integer  "person_id"
+    t.string   "identifier"
     t.text     "title"
     t.text     "description"
     t.text     "meeting"
@@ -46,6 +48,7 @@ ActiveRecord::Schema.define(:version => 20081016191436) do
 
   create_table "publications", :force => true do |t|
     t.integer  "person_id"
+    t.string   "identifier"
     t.string   "pubmed_identifier"
     t.string   "medline_identifier"
     t.text     "digital_object_identifier"
@@ -89,6 +92,7 @@ ActiveRecord::Schema.define(:version => 20081016191436) do
 
   create_table "services", :force => true do |t|
     t.integer  "person_id"
+    t.string   "identifier"
     t.text     "title"
     t.text     "description"
     t.text     "organization"

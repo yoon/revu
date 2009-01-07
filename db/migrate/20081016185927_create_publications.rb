@@ -4,6 +4,7 @@ class CreatePublications < ActiveRecord::Migration
       t.integer :person_id
 
       # Identification
+      t.string :identifier
       t.string :pubmed_identifier
       t.string :medline_identifier
       t.text :digital_object_identifier

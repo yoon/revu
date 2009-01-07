@@ -35,7 +35,6 @@ class ActivitiesController < ApplicationController
 
   # GET /activities/1/edit
   def edit
-
   end
 
   # POST /activities
@@ -46,7 +45,7 @@ class ActivitiesController < ApplicationController
     respond_to do |format|
       if @activity.save
         flash[:notice] = 'Activity was successfully created.'
-        format.html { redirect_to(activites_path) }
+        format.html { redirect_to(activities_path) }
         format.xml  { render :xml => @activity, :status => :created, :location => @activity }
       else
         format.html { render :action => "new" }
@@ -86,7 +85,7 @@ class ActivitiesController < ApplicationController
   def find_activity
     @klass = params[:activity_type].capitalize.constantize
     @klass_name = @klass.name.downcase
-    @activity = @klass.find(params[:activity_id]) if params.has_key?(:activity_id)
+    @activity = @klass.find_by_identifier(params[:activity_id]) if params.has_key?(:activity_id)
   end
   
 end

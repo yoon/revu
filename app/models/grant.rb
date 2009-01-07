@@ -18,7 +18,8 @@
 #  updated_at   :datetime
 #
 
-class Grant < ActiveRecord::Base
+class Grant < Activity
+    
   has_one :revu, :as => :activity
   def grant_types
     [ "NIH/RO1",

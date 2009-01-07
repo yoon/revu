@@ -27,7 +27,7 @@
 #  updated_at                      :datetime
 #
 
-class Publication < ActiveRecord::Base
+class Publication < Activity
   has_one :revu, :as => :activity
   
   alias_attribute :pubmed, :pubmed_identiifer
