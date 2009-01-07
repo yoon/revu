@@ -1,12 +1,12 @@
-- title_helper "Edit #{@klass_name} #{@activity.identifier}"
+- title_helper "Edit #{@klass_name.singularize} #{@activity.identifier}"
 
-- form_for(@klass_name, @activity, :url => update_activity_path(@klass_name, @activity.identifier), :html => {:method => :put} ) do |f|
+- form_for(@klass_name.singularize, @activity, :url => update_activity_path(@klass_name, @activity.identifier), :html => {:method => :put} ) do |f|
   = f.error_messages
-  = render :partial => @klass_name, :locals => {:f => f}
+  = render :partial => @klass_name.singularize, :locals => {:f => f}
   %p
     = f.submit "Update"
     = link_to 'Cancel', activities_path
 %br
-%p= link_to 'Destroy', destroy_activity_path(@activity.class.name.downcase, @activity.identifier), :confirm => 'Are you sure?', :method => :delete
+%p= link_to 'Destroy', destroy_activity_path(@klass_name, @activity.identifier), :confirm => 'Are you sure?', :method => :delete
     
 -# link_to 'Show', show_activity_path(@klass_name, @activity.identifier)

@@ -83,8 +83,8 @@ class ActivitiesController < ApplicationController
   private
 
   def find_activity
-    @klass = params[:activity_type].capitalize.constantize
-    @klass_name = @klass.name.downcase
+    @klass = params[:activity_type].singularize.capitalize.constantize
+    @klass_name = @klass.name.downcase.pluralize
     @activity = @klass.find_by_identifier(params[:activity_id]) if params.has_key?(:activity_id)
   end
   

@@ -1,4 +1,4 @@
-- title_helper "Show #{@klass_name} #{@activity.identifier}"
+- title_helper "Show #{@klass_name.singularize} #{@activity.identifier}"
 
 = link_to 'Edit', edit_activity_path(@klass_name, @activity.identifier) |
 = link_to 'Activites', activities_path

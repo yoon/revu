@@ -1,5 +1,5 @@
 ActionController::Routing::Routes.draw do |map|
-  req = {:activity_type => /grant|publication|presentation|service/}
+  req = {:activity_type => /grants|publications|presentations|services/}
   get, put, pst, del = {:method => :get}, {:method => :put}, {:method => :post}, {:method => :delete}
   
   map.with_options :controller => 'activities' do |map|

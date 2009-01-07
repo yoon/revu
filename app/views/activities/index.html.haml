@@ -3,11 +3,11 @@
 %table 
   - for activity in @activities
     %tr
-      %td= link_to "#{activity.class.name.downcase} #{activity.identifier}", edit_activity_path(activity.class.name.downcase, activity.identifier)
+      %td= link_to "#{activity.class.name.downcase} #{activity.identifier}", edit_activity_path(activity.class.name.downcase.pluralize, activity.identifier)
 
 %ul
-  %li= link_to 'New grant', new_activity_path(:activity_type => "grant")
-  %li= link_to 'New publication', new_activity_path(:activity_type => "publication")
-  %li= link_to 'New presentation', new_activity_path(:activity_type => "presentation")
-  %li= link_to 'New service', new_activity_path(:activity_type => "service")
+  %li= link_to 'New grant', new_activity_path(:activity_type => "grants")
+  %li= link_to 'New publication', new_activity_path(:activity_type => "publications")
+  %li= link_to 'New presentation', new_activity_path(:activity_type => "presentations")
+  %li= link_to 'New service', new_activity_path(:activity_type => "services")
 
