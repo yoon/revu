@@ -1,3 +1,20 @@
+# == Schema Information
+# Schema version: 20081016191436
+#
+# Table name: services
+#
+#  id           :integer         not null, primary key
+#  person_id    :integer
+#  title        :text
+#  description  :text
+#  organization :text
+#  service_type :string(255)
+#  starts_on    :date
+#  ends_on      :date
+#  created_at   :datetime
+#  updated_at   :datetime
+#
+
 require File.expand_path(File.dirname(__FILE__) + '/../spec_helper')
 
 describe Service do

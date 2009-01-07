@@ -9,10 +9,61 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20081015163814) do
+ActiveRecord::Schema.define(:version => 20081016191436) do
+
+  create_table "grants", :force => true do |t|
+    t.integer  "person_id"
+    t.text     "title"
+    t.text     "description"
+    t.text     "pi"
+    t.string   "role"
+    t.string   "effort"
+    t.string   "direct_costs"
+    t.string   "grant_type"
+    t.date     "starts_on"
+    t.date     "ends_on"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "people", :force => true do |t|
     t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "presentations", :force => true do |t|
+    t.integer  "person_id"
+    t.text     "title"
+    t.text     "description"
+    t.text     "meeting"
+    t.text     "location"
+    t.string   "presentation_type"
+    t.date     "presented_on"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "publications", :force => true do |t|
+    t.integer  "person_id"
+    t.string   "pubmed_identifier"
+    t.string   "medline_identifier"
+    t.text     "digital_object_identifier"
+    t.text     "controlled_publisher_identifier"
+    t.text     "authors"
+    t.text     "title"
+    t.string   "journal"
+    t.string   "journal_abbreviation"
+    t.string   "volume"
+    t.string   "issue"
+    t.string   "pages"
+    t.text     "abstract"
+    t.text     "mesh"
+    t.text     "affiliations"
+    t.text     "source"
+    t.string   "publication_type"
+    t.string   "year"
+    t.date     "published_on"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -34,6 +85,18 @@ ActiveRecord::Schema.define(:version => 20081015163814) do
     t.datetime "updated_at"
     t.date     "starts_on"
     t.date     "ends_on"
+  end
+
+  create_table "services", :force => true do |t|
+    t.integer  "person_id"
+    t.text     "title"
+    t.text     "description"
+    t.text     "organization"
+    t.string   "service_type"
+    t.date     "starts_on"
+    t.date     "ends_on"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
 end

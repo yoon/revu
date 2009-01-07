@@ -1,3 +1,27 @@
+# == Schema Information
+# Schema version: 20081016191436
+#
+# Table name: revus
+#
+#  id                :integer         not null, primary key
+#  person_id         :integer
+#  revuable_id       :integer
+#  revuable_type     :string(255)
+#  type              :string(255)
+#  effort            :float
+#  academic_value    :float
+#  author_rank_score :float
+#  impact_factor     :float
+#  role              :float
+#  score             :float
+#  funding_modifier  :float
+#  pi_status         :float
+#  created_at        :datetime
+#  updated_at        :datetime
+#  starts_on         :date
+#  ends_on           :date
+#
+
 require File.expand_path(File.dirname(__FILE__) + '/../spec_helper')
 
 describe Revu, "validations" do

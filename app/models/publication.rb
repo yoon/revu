@@ -1,3 +1,32 @@
+# == Schema Information
+# Schema version: 20081016191436
+#
+# Table name: publications
+#
+#  id                              :integer         not null, primary key
+#  person_id                       :integer
+#  pubmed_identifier               :string(255)
+#  medline_identifier              :string(255)
+#  digital_object_identifier       :text
+#  controlled_publisher_identifier :text
+#  authors                         :text
+#  title                           :text
+#  journal                         :string(255)
+#  journal_abbreviation            :string(255)
+#  volume                          :string(255)
+#  issue                           :string(255)
+#  pages                           :string(255)
+#  abstract                        :text
+#  mesh                            :text
+#  affiliations                    :text
+#  source                          :text
+#  publication_type                :string(255)
+#  year                            :string(255)
+#  published_on                    :date
+#  created_at                      :datetime
+#  updated_at                      :datetime
+#
+
 class Publication < ActiveRecord::Base
   
   alias_attribute :pubmed, :pubmed_identiifer
