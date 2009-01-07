@@ -12,6 +12,11 @@
 class Person < ActiveRecord::Base
   # Associations
   has_many :revus
+  has_many :grant
+  has_many :publications
+  has_many :presentations
+  has_many :services
+  has_many :cvs
   
   # Instance methods
   def revu_totals

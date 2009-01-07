@@ -9,7 +9,26 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20081016191436) do
+ActiveRecord::Schema.define(:version => 20090107212312) do
+
+  create_table "citations", :force => true do |t|
+    t.integer  "cv_id"
+    t.string   "activity_type"
+    t.string   "activity_id"
+    t.integer  "display_order"
+    t.text     "text"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "cvs", :force => true do |t|
+    t.integer  "person_id"
+    t.string   "identifier"
+    t.string   "title"
+    t.string   "citation_format"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "grants", :force => true do |t|
     t.integer  "person_id"

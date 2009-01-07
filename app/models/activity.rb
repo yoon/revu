@@ -5,6 +5,7 @@ class Activity < ActiveRecord::Base
   # Associations
   has_one :revu, :as => :activity
   has_many :citations, :as => :activity
+  has_many :cvs, :through => :citations
   
   # Instance methods
   def initialize(*attrs)
