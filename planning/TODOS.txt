@@ -1,5 +1,5 @@
-create cv model
-allow different cv versions
-when changing item, show what cv's its on
-think of name for cv item cv join table
 add teaching model
+
+when changing item, show what cv's its on
+do not allow removal of an item if it is on cv's
+add a "remove from all cv's" option for each item

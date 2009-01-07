@@ -1,0 +1,15 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  cv_id: 1
+  activity_type: MyString
+  activity_id: MyString
+  display_order: 1
+  text: MyText
+
+two:
+  cv_id: 1
+  activity_type: MyString
+  activity_id: MyString
+  display_order: 1
+  text: MyText
