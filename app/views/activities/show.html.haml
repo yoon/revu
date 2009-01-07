@@ -1,4 +1,10 @@
 - title_helper "Show #{@klass_name.singularize} #{@activity.identifier}"
 
+- unless @activity.cvs.blank?
+  %h3 On CVs
+  %ul
+    - for cv in @activity.cvs
+      %li= cv.identifier
+
 = link_to 'Edit', edit_activity_path(@klass_name, @activity.identifier) |
 = link_to 'Activites', activities_path

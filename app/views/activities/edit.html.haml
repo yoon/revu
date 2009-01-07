@@ -1,5 +1,11 @@
 - title_helper "Edit #{@klass_name.singularize} #{@activity.identifier}"
 
+- unless @activity.cvs.blank?
+  %h3 On CVs
+  %ul
+    - for cv in @activity.cvs
+      %li= cv.identifier
+
 - form_for(@klass_name.singularize, @activity, :url => update_activity_path(@klass_name, @activity.identifier), :html => {:method => :put} ) do |f|
   = f.error_messages
   = render :partial => @klass_name.singularize, :locals => {:f => f}
@@ -7,6 +13,8 @@
     = f.submit "Update"
     = link_to 'Cancel', activities_path
 %br
-%p= link_to 'Destroy', destroy_activity_path(@klass_name, @activity.identifier), :confirm => 'Are you sure?', :method => :delete
+
+- if @activity.cvs.blank?
+  %p= link_to 'Destroy', destroy_activity_path(@klass_name, @activity.identifier), :confirm => 'Are you sure?', :method => :delete
     
 -# link_to 'Show', show_activity_path(@klass_name, @activity.identifier)

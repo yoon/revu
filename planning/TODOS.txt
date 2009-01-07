@@ -1,5 +1,6 @@
 add teaching model
 
-when changing item, show what cv's its on
-do not allow removal of an item if it is on cv's
+do not allow removal of an item if it is on cv's, (hid link, still have to disable in model)
 add a "remove from all cv's" option for each item
+
+highlight activities that have been updated since the cv was updated
