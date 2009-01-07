@@ -19,6 +19,7 @@
 #
 
 class Grant < ActiveRecord::Base
+  has_one :revu, :as => :activity
   def grant_types
     [ "NIH/RO1",
       "NIH training",

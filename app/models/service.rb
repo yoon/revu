@@ -16,6 +16,8 @@
 #
 
 class Service < ActiveRecord::Base
+  has_one :revu, :as => :activity
+  
   def service_types
     [ "committee",
       "national society",

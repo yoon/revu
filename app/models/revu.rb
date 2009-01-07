@@ -24,7 +24,7 @@
 
 class Revu < ActiveRecord::Base
   # Associations
-  belongs_to :revuable, :polymorphic => :true
+  belongs_to :activity, :polymorphic => :true
   belongs_to :person
   
   # Validations

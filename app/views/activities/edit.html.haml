@@ -1,12 +1,10 @@
-<h1>Editing activity</h1>
+%h1 Edit
 
-<% form_for(@activity) do |f| %>
-  <%= f.error_messages %>
+- form_for(@activity) do |f|
+  = f.error_messages
+  
+  = f.submit "Update"
 
-  <p>
-    <%= f.submit "Update" %>
-  </p>
-<% end %>
-
-<%= link_to 'Show', @activity %> |
-<%= link_to 'Back', activities_path %>
+= link_to 'show', @activity
+|
+= link_to 'back', activities_path

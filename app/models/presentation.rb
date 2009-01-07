@@ -16,6 +16,7 @@
 #
 
 class Presentation < ActiveRecord::Base
+  has_one :revu, :as => :activity
   alias_attribute :date, :presented_on
   
   def presentation_types

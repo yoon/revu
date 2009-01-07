@@ -1,11 +1,8 @@
-<h1>New activity</h1>
+%h1= "New #{@klass.name.downcase}"
 
-<% form_for(@activity) do |f| %>
-  <%= f.error_messages %>
+- form_for(@klass.name.to_sym, @activity, edit_activity_path(@activity, :activity_type => @klass)) do |f|
+  = f.error_messages
+  %p 
+    = f.submit "Create"
 
-  <p>
-    <%= f.submit "Create" %>
-  </p>
-<% end %>
-
-<%= link_to 'Back', activities_path %>
+= link_to 'Back', activities_path

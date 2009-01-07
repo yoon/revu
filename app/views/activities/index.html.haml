@@ -1,18 +1,16 @@
-<h1>Listing activities</h1>
 
-<table>
-  <tr>
-  </tr>
+%h1 Listing activities
 
-<% for activity in @activities %>
-  <tr>
-    <td><%= link_to 'Show', activity %></td>
-    <td><%= link_to 'Edit', edit_activity_path(activity) %></td>
-    <td><%= link_to 'Destroy', activity, :confirm => 'Are you sure?', :method => :delete %></td>
-  </tr>
-<% end %>
-</table>
+%table 
+  - for activity in @activities
+    %tr 
+      %td= link_to 'Show', activity
+      %td= link_to 'Edit', edit_activity_path(activity)
+      %td= link_to 'Destroy', activity, :confirm => 'Are you sure?', :method => :delete
 
-<br />
+%ul
+  %li= link_to 'New grant', new_activity_path(:activity_type => "grant")
+  %li= link_to 'New publication', new_activity_path(:activity_type => "publication")
+  %li= link_to 'New presentation', new_activity_path(:activity_type => "presentation")
+  %li= link_to 'New service', new_activity_path(:activity_type => "service")
 
-<%= link_to 'New activity', new_activity_path %>
