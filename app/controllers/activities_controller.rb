@@ -1,9 +1,8 @@
 class ActivitiesController < ApplicationController
+  before_filter :find_activity, :except => :index
+
   # GET /activities
   # GET /activities.xml
-  
-  before_filter :find_activity, :except => :index
-  
   def index
     @activities = Grant.find(:all) + Publication.find(:all) + Presentation.find(:all) + Service.find(:all)
   

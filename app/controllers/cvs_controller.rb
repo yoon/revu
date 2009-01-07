@@ -1,4 +1,6 @@
 class CvsController < ApplicationController
+  before_filter :find_cv, :except => [:index, :new, :create]
+
   # GET /cvs
   # GET /cvs.xml
   def index
@@ -13,8 +15,6 @@ class CvsController < ApplicationController
   # GET /cvs/1
   # GET /cvs/1.xml
   def show
-    @cv = Cv.find(params[:id])
-
     respond_to do |format|
       format.html # show.html.erb
       format.xml  { render :xml => @cv }
@@ -34,7 +34,6 @@ class CvsController < ApplicationController
 
   # GET /cvs/1/edit
   def edit
-    @cv = Cv.find(params[:id])
   end
 
   # POST /cvs
@@ -57,8 +56,6 @@ class CvsController < ApplicationController
   # PUT /cvs/1
   # PUT /cvs/1.xml
   def update
-    @cv = Cv.find(params[:id])
-
     respond_to do |format|
       if @cv.update_attributes(params[:cv])
         flash[:notice] = 'Cv was successfully updated.'
@@ -74,7 +71,6 @@ class CvsController < ApplicationController
   # DELETE /cvs/1
   # DELETE /cvs/1.xml
   def destroy
-    @cv = Cv.find(params[:id])
     @cv.destroy
 
     respond_to do |format|
@@ -82,4 +78,11 @@ class CvsController < ApplicationController
       format.xml  { head :ok }
     end
   end
+  
+  private
+
+  def find_cv
+    @cv = Cv.find_by_identifier(params[:id])
+  end
+  
 end
