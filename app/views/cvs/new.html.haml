@@ -2,6 +2,9 @@
 
 - form_for(@cv) do |f|
   = f.error_messages
+  = @cv.person.name
+  = f.hidden_field :person_id
+  %br
   = render :partial => 'cv', :locals => {:f => f}
   %p
     = f.submit "Create"

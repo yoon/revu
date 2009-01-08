@@ -25,7 +25,7 @@ class ActivitiesController < ApplicationController
   # GET /activities/new
   # GET /activities/new.xml
   def new
-    @activity = @klass.new
+    @activity = @klass.new(:person_id => current_user.id)
 
     respond_to do |format|
       format.html # new.html.erb

@@ -20,7 +20,7 @@
 #
 
 class Grant < Activity
-  
+    belongs_to :person
   def self.types
     [ "NIH/RO1",
       "NIH training",

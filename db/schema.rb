@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20090108180943) do
+ActiveRecord::Schema.define(:version => 20090108202541) do
 
   create_table "citations", :force => true do |t|
     t.integer  "cv_id"
@@ -72,8 +72,9 @@ ActiveRecord::Schema.define(:version => 20090108180943) do
     t.string   "medline_identifier"
     t.text     "digital_object_identifier"
     t.text     "controlled_publisher_identifier"
-    t.text     "authors"
     t.text     "title"
+    t.text     "description"
+    t.text     "authors"
     t.string   "journal"
     t.string   "journal_abbreviation"
     t.string   "volume"
@@ -132,6 +133,7 @@ ActiveRecord::Schema.define(:version => 20090108180943) do
     t.datetime "updated_at"
     t.string   "remember_token",            :limit => 40
     t.datetime "remember_token_expires_at"
+    t.string   "type"
   end
 
   add_index "users", ["login"], :name => "index_users_on_login", :unique => true

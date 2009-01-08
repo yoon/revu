@@ -27,7 +27,7 @@ class CvsController < ApplicationController
   # GET /cvs/new
   # GET /cvs/new.xml
   def new
-    @cv = Cv.new
+    @cv = Cv.new(:person_id => current_user.id)
 
     respond_to do |format|
       format.html # new.html.erb
@@ -48,7 +48,7 @@ class CvsController < ApplicationController
     respond_to do |format|
       if @cv.save
         flash[:notice] = 'Cv was successfully created.'
-        format.html { redirect_to(cvs_path) }
+        format.html { redirect_to(edit_cv_path(@cv)) }
         format.xml  { render :xml => @cv, :status => :created, :location => @cv }
       else
         format.html { render :action => "new" }

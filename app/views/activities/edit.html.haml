@@ -6,8 +6,10 @@
     - for cv in @activity.cvs
       %li= cv.identifier
 
-- form_for(@klass_name.singularize, @activity, :url => update_activity_path(@klass_name, @activity.identifier), :html => {:method => :put} ) do |f|
+- form_for(:activity, @activity, :url => update_activity_path(@klass_name, @activity.identifier), :html => {:method => :put} ) do |f|
   = f.error_messages
+  = @activity.person ? @activity.person.name : nil
+  %br
   = render :partial => @klass_name.singularize, :locals => {:f => f}
   %p
     = f.submit "Update"

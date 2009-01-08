@@ -11,8 +11,9 @@ class CreatePublications < ActiveRecord::Migration
       t.text :controlled_publisher_identifier
       
       # Detail
-      t.text :authors
       t.text :title
+      t.text :description
+      t.text :authors
       t.string :journal
       t.string :journal_abbreviation
       t.string :volume

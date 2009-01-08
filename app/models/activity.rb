@@ -3,6 +3,7 @@ class Activity < ActiveRecord::Base
   self.abstract_class = true
   
   # Associations
+  belongs_to :person
   has_one :revu, :as => :activity
   has_many :citations, :as => :activity
   has_many :cvs, :through => :citations

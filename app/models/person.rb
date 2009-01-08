@@ -9,7 +9,7 @@
 #  updated_at :datetime
 #
 
-class Person < ActiveRecord::Base
+class Person < User
   # Associations
   has_many :revus
   has_many :grant

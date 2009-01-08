@@ -2,6 +2,8 @@
 
 - form_for(@cv) do |f|
   = f.error_messages
+  = @cv.person.name
+  %br
   = render :partial => 'cv', :locals => {:f => f}
   %h3 Citations
   %ul

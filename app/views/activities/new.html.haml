@@ -1,7 +1,10 @@
 - title_helper "New #{@klass_name.singularize}"
 
-- form_for(@klass_name.singularize, @activity) do |f|
+- form_for(:activity, @activity) do |f|
   = f.error_messages
+  = @activity.person.name
+  = f.hidden_field :person_id
+  %br
   = render :partial => @klass_name.singularize, :locals => {:f => f}
   %p 
     = f.submit "Create"
