@@ -3,11 +3,31 @@
 - form_for(@cv) do |f|
   = f.error_messages
   = render :partial => 'cv', :locals => {:f => f}
+  %h3 Citations
+  %ul
+    - for citation in @cv.citations
+      - fields_for "cv[existing_cs][]", citation do |cf|
+        %li
+          = citation.activity_type
+          = cf.hidden_field :activity_id
+          = cf.hidden_field :activity_type
+          = cf.hidden_field :text
+          = cf.hidden_field :display_order
   %p
-  
     = f.submit "Update"
     = link_to 'Cancel', cvs_path
 %br
 %p= link_to 'Destroy', @cv, :confirm => 'Are you sure?', :method => :delete
-    
--# link_to 'Show', @cv
+
+%h3 Activities
+%ul
+  - for activity in @activities
+    - fields_for "cv[new_cs][]", Citation.new do |cf|
+      %li
+        = activity.class.name
+        = cf.hidden_field :activity_id, :value => activity.id
+        = cf.hidden_field :activity_type, :value => activity.class.name
+        = cf.hidden_field :text
+        = cf.hidden_field :display_order
+
+

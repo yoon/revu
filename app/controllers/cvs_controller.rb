@@ -1,4 +1,5 @@
 class CvsController < ApplicationController
+  before_filter :login_required
   before_filter :find_cv, :except => [:index, :new, :create]
 
   layout 'activities'
@@ -36,6 +37,7 @@ class CvsController < ApplicationController
 
   # GET /cvs/1/edit
   def edit
+    @activities = Activity.all_activities - (@cv.citations || []).map(&:activity)
   end
 
   # POST /cvs
@@ -46,7 +48,7 @@ class CvsController < ApplicationController
     respond_to do |format|
       if @cv.save
         flash[:notice] = 'Cv was successfully created.'
-        format.html { redirect_to(@cv) }
+        format.html { redirect_to(cvs_path) }
         format.xml  { render :xml => @cv, :status => :created, :location => @cv }
       else
         format.html { render :action => "new" }
@@ -61,7 +63,7 @@ class CvsController < ApplicationController
     respond_to do |format|
       if @cv.update_attributes(params[:cv])
         flash[:notice] = 'Cv was successfully updated.'
-        format.html { redirect_to(@cv) }
+        format.html { redirect_to(cvs_path) }
         format.xml  { head :ok }
       else
         format.html { render :action => "edit" }
@@ -76,7 +78,7 @@ class CvsController < ApplicationController
     @cv.destroy
 
     respond_to do |format|
-      format.html { redirect_to(cvs_url) }
+      format.html { redirect_to(cvs_path) }
       format.xml  { head :ok }
     end
   end

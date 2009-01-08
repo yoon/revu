@@ -1,4 +1,5 @@
 class ActivitiesController < ApplicationController
+  before_filter :login_required
   before_filter :find_activity, :except => :index
 
   # GET /activities

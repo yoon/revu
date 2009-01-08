@@ -11,6 +11,9 @@
         = yield :styles
     %body
       #container
+        = render :partial => '/users/user_bar'
+        = link_to_unless_current "CVs", cvs_path
+        = link_to_unless_current "Activities", activities_path
         #content
           %h1= @title
           = yield
