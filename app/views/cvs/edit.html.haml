@@ -1,4 +1,5 @@
 - title_helper "Edit CV #{@cv.identifier}"
+- javascripts_helper "jquery.ui-1.5.3/jquery-1.2.6"
 
 - form_for(@cv) do |f|
   = f.error_messages
@@ -6,11 +7,13 @@
   %br
   = render :partial => 'cv', :locals => {:f => f}
   %h3 Citations
-  %ul
+  %ul#citations
     - for citation in @cv.citations
       - fields_for "cv[existing_cs][]", citation do |cf|
         %li
           = citation.activity_type
+          = link_to "+", "#", :class => 'add', :style => "display:none;"
+          = link_to "-", "#", :class => 'remove'
           = cf.hidden_field :activity_id
           = cf.hidden_field :activity_type
           = cf.hidden_field :text
@@ -19,17 +22,29 @@
     = f.submit "Update"
     = link_to 'Cancel', cvs_path
 %br
-%p= link_to 'Destroy', @cv, :confirm => 'Are you sure?', :method => :delete
+%p= link_to('Destroy', @cv, :confirm => 'Are you sure?', :method => :delete) if @cv.citations.blank?
 
 %h3 Activities
-%ul
+%ul#activities
   - for activity in @activities
     - fields_for "cv[new_cs][]", Citation.new do |cf|
       %li
         = activity.class.name
+        = link_to "+", "#", :class => 'add'
+        = link_to "-", "#", :class => 'remove', :style => "display:none;"
         = cf.hidden_field :activity_id, :value => activity.id
         = cf.hidden_field :activity_type, :value => activity.class.name
         = cf.hidden_field :text
         = cf.hidden_field :display_order
 
 
+- content_for :head do
+  :javascript
+    $(document).ready(function(){
+      $('a.add').click(function(){
+        $('#citations').append($(this).hide().siblings('a.remove').show().end().parent('li'));
+      });
+      $('a.remove').click(function(){
+        $('#activities').append($(this).hide().siblings('a.add').show().end().parent('li'))
+      });
+    });

@@ -36,7 +36,7 @@ class CvsController < ApplicationController
   end
 
   # GET /cvs/1/edit
-  def edit
+  def edit    
     @activities = Activity.all_activities - (@cv.citations || []).map(&:activity)
   end
 
@@ -60,13 +60,17 @@ class CvsController < ApplicationController
   # PUT /cvs/1
   # PUT /cvs/1.xml
   def update
+    params[:cv][:existing_cs] ||= {}
+    
     respond_to do |format|
       if @cv.update_attributes(params[:cv])
         flash[:notice] = 'Cv was successfully updated.'
         format.html { redirect_to(cvs_path) }
+        format.js   { render :json => {:status => :ok}.to_json }
         format.xml  { head :ok }
       else
         format.html { render :action => "edit" }
+        format.js   { render :json => {:status => :fail}.to_json }
         format.xml  { render :xml => @cv.errors, :status => :unprocessable_entity }
       end
     end
