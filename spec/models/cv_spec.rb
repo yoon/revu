@@ -1,3 +1,17 @@
+# == Schema Information
+# Schema version: 20090107212312
+#
+# Table name: cvs
+#
+#  id              :integer         not null, primary key
+#  person_id       :integer
+#  identifier      :string(255)
+#  title           :string(255)
+#  citation_format :string(255)
+#  created_at      :datetime
+#  updated_at      :datetime
+#
+
 require File.expand_path(File.dirname(__FILE__) + '/../spec_helper')
 
 describe Cv do

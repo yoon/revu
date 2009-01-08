@@ -1,5 +1,5 @@
 # == Schema Information
-# Schema version: 20081016191436
+# Schema version: 20090107212312
 #
 # Table name: people
 #

@@ -1,10 +1,11 @@
 # == Schema Information
-# Schema version: 20081016191436
+# Schema version: 20090107212312
 #
 # Table name: publications
 #
 #  id                              :integer         not null, primary key
 #  person_id                       :integer
+#  identifier                      :string(255)
 #  pubmed_identifier               :string(255)
 #  medline_identifier              :string(255)
 #  digital_object_identifier       :text

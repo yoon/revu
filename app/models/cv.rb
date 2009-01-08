@@ -1,3 +1,17 @@
+# == Schema Information
+# Schema version: 20090107212312
+#
+# Table name: cvs
+#
+#  id              :integer         not null, primary key
+#  person_id       :integer
+#  identifier      :string(255)
+#  title           :string(255)
+#  citation_format :string(255)
+#  created_at      :datetime
+#  updated_at      :datetime
+#
+
 class Cv < ActiveRecord::Base
   include TinyCode
   

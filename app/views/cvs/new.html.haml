@@ -2,7 +2,7 @@
 
 - form_for(@cv) do |f|
   = f.error_messages
-
-  %p 
+  = render :partial => 'cv', :locals => {:f => f}
+  %p
     = f.submit "Create"
     = link_to 'Cancel', cvs_path

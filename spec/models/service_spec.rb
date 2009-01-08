@@ -1,10 +1,11 @@
 # == Schema Information
-# Schema version: 20081016191436
+# Schema version: 20090107212312
 #
 # Table name: services
 #
 #  id           :integer         not null, primary key
 #  person_id    :integer
+#  identifier   :string(255)
 #  title        :text
 #  description  :text
 #  organization :text
