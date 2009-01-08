@@ -2,6 +2,6 @@
 
 %ul
   - for cv in @cvs
-    %li= link_to cv.identifier, edit_cv_path(cv)
+    %li= link_to cv.title, edit_cv_path(cv)
 
 =link_to 'New CV', new_cv_path

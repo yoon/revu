@@ -5,7 +5,7 @@ class ActivitiesController < ApplicationController
   # GET /activities
   # GET /activities.xml
   def index
-    @activities = Grant.find(:all) + Publication.find(:all) + Presentation.find(:all) + Service.find(:all)
+    @activities = (Grant.all + Publication.all + Presentation.all + Service.all).group_by{|a| a.class.name}.sort
   
     respond_to do |format|
       format.html # index.html.erb
