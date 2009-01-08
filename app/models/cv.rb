@@ -23,6 +23,9 @@ class Cv < ActiveRecord::Base
   has_many :presentations,  :through => :citations, :source => :presentation, :conditions => "citations.activity_type = 'Presentation'"
   has_many :services,       :through => :citations, :source => :service,      :conditions => "citations.activity_type = 'Service'"
   
+  # Validations
+  validates_presence_of :title
+  
   # Instance methods
   def initialize(*attrs)
     super(*attrs)

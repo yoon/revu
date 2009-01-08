@@ -34,4 +34,10 @@ describe Service do
   it "should create a new instance given valid attributes" do
     Service.create!(@valid_attributes)
   end
+  it "should be invalid without a title" do
+    @service = Service.new()
+    @service.should have(1).errors_on(:title)
+    @service.title = ""
+    @service.should have(1).errors_on(:title)
+  end
 end

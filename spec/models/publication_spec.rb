@@ -33,28 +33,36 @@ require File.expand_path(File.dirname(__FILE__) + '/../spec_helper')
 describe Publication do
   before(:each) do
     @valid_attributes = {
+      :person_id => "1",
       :authors => "value for authors",
       :title => "value for title",
+      :description => "value for description",
       :journal => "value for journal",
       :volume => "value for volume",
       :issue => "value for issue",
       :pages => "value for pages",
       :year => "value for year",
-      :pubmed => "value for pubmed",
-      :medline => "value for medline",
+      :pubmed_identifier => "value for pubmed",
+      :medline_identifier => "value for medline",
       :abstract => "value for abstract",
       :mesh => "value for mesh",
       :affiliations => "value for affiliations",
       :published_on => Date.today,
-      :doi => "value for doi",
-      :pii => "value for pii",
+      :digital_object_identifier => "value for doi",
+      :controlled_publisher_identifier => "value for pii",
       :publication_type => "value for publication_type",
       :source => "value for source",
-      :journal_title_abbreviation => "value for journal_title_abbreviation"
+      :journal_abbreviation => "value for journal_title_abbreviation"
     }
   end
 
   it "should create a new instance given valid attributes" do
     Publication.create!(@valid_attributes)
+  end
+  it "should be invalid without a title" do
+    @publication = Publication.new()
+    @publication.should have(1).errors_on(:title)
+    @publication.title = ""
+    @publication.should have(1).errors_on(:title)
   end
 end

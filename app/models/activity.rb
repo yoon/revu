@@ -8,6 +8,9 @@ class Activity < ActiveRecord::Base
   has_many :citations, :as => :activity
   has_many :cvs, :through => :citations
   
+  # Validations
+  validates_presence_of :title
+  
   # Class methods
   def self.all_activities
     Grant.all + Publication.all + Presentation.all + Service.all

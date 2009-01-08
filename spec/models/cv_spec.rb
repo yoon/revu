@@ -27,4 +27,10 @@ describe Cv do
   it "should create a new instance given valid attributes" do
     Cv.create!(@valid_attributes)
   end
+  it "should be invalid without a title" do
+    @cv = Cv.new()
+    @cv.should have(1).errors_on(:title)
+    @cv.title = ""
+    @cv.should have(1).errors_on(:title)
+  end
 end

@@ -26,6 +26,7 @@ describe Grant do
     @valid_attributes = {
       :person_id => "1",
       :title => "value for title",
+      :description => "value for description",
       :pi => "value for pi",
       :role => "value for role",
       :effort => "value for effort",
@@ -38,5 +39,11 @@ describe Grant do
 
   it "should create a new instance given valid attributes" do
     Grant.create!(@valid_attributes)
+  end
+  it "should be invalid without a title" do
+    @grant = Grant.new()
+    @grant.should have(1).errors_on(:title)
+    @grant.title = ""
+    @grant.should have(1).errors_on(:title)
   end
 end

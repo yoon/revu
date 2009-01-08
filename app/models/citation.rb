@@ -20,4 +20,10 @@ class Citation < ActiveRecord::Base
   belongs_to :publication,  :class_name => "Publication",   :foreign_key => "activity_id"
   belongs_to :presentation, :class_name => "Presentation",  :foreign_key => "activity_id"  
   belongs_to :service,      :class_name => "Service",       :foreign_key => "activity_id"
+
+  def self.formats
+    [ "Chronological",
+      "Reverse Chronological",
+      "Basic" ]
+  end
 end
