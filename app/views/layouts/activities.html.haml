@@ -4,16 +4,20 @@
     %title= @title
     = @javascripts.blank? ? "" : javascript_include_tag(@javascripts)
     = yield :head
-    -#= stylesheet_link_tag ""
+    = stylesheet_link_tag "revu"
     = @stylesheets.blank? ? "" : stylesheet_link_tag(@stylesheets)
     %style{:type => "text/css"}
       /
         = yield :styles
     %body
       #container
-        = render :partial => '/users/user_bar'
-        = link_to_unless_current "CVs", cvs_path
-        = link_to_unless_current "Activities", activities_path
+        #header
+          %ul#tabs
+            %li= link_to_unless_current "CVs", cvs_path
+            %li= link_to_unless_current "Activities", activities_path
+          #user-bar
+            = render :partial => '/users/user_bar'
+          %br.clear
         #content
           %h1= @title
           = yield

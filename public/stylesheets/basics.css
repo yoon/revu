@@ -1,0 +1,114 @@
+@media all {
+  html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+  a, abbr, acronym, address, big, cite, code, del, dfn, em, font, img, ins, kbd, q, s, samp,
+  small, strike, strong, sub, sup, tt, var, dl, dt, dd, ol, ul, li, fieldset, form, label,
+  legend, table, caption, tbody, tfoot, thead, tr, th, td {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    outline: 0;
+    font-weight: inherit;
+    font-style: inherit;
+    font-family: inherit;
+    vertical-align: baseline; }
+
+  html {
+    font-size: 1em; }
+
+  /* body
+   * :font-family "Trebuchet MS", Verdana, Arial, Helvetica, sans-serif
+   * :font-size 80% */
+  h1, h2, h3, h4, h5, h6, p, pre, blockquote, form, label, ul, ol, dl, fieldset, address {
+    margin: 10px 0; }
+
+  li, dd, blockquote {
+    margin-left: 20px; }
+
+  fieldset {
+    padding: 10px; }
+
+  hr {
+    clear: both; }
+
+  /* remember to define focus styles! */
+  focus {
+    outline: 0; }
+
+  body {
+    line-height: 1;
+    color: black;
+    background: white; }
+
+  ol, ul {
+    list-style: none; }
+
+  /* tables still need 'cellspacing="0"' in the markup */
+  table {
+    border-collapse: separate;
+    border-spacing: 0; }
+
+  caption, th, td {
+    text-align: left;
+    font-weight: normal; }
+
+  blockquotebefore, blockquoteafter, qbefore, qafter {
+    content: ""; }
+
+  blockquote, q {
+    quotes: "" ""; }
+
+  /* yoon favorites */
+  .pad {
+    padding: 10px; }
+
+  .left {
+    float: left; }
+
+  .right {
+    float: right; }
+
+  .clear {
+    clear: both; }
+
+  .textcenter, .center-text {
+    text-align: center; }
+
+  .textleft, .left-text {
+    text-align: left; }
+
+  .textright, .right-text {
+    text-align: right; }
+
+  .vtop {
+    vertical-align: top; }
+
+  .vbottom {
+    vertical-align: bottom; }
+
+  .vmiddle {
+    vertical-align: middle; }
+
+  .highlight {
+    background-color: #ffc; }
+
+  img.rimage {
+    float: right;
+    padding-left: 10px; }
+
+  img.limage {
+    float: left;
+    padding-right: 10px; }
+
+  div.column {
+    width: 49%;
+    padding-right: 1%;
+    float: left; }
+
+  div.right {
+    float: right; }
+
+  div.left {
+    float: left; }
+
+  a img {
+    border: 0; } }

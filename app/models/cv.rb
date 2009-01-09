@@ -17,7 +17,7 @@ class Cv < ActiveRecord::Base
   
   # Associations
   belongs_to :person
-  has_many :citations, :dependent => :destroy
+  has_many :citations, :dependent => :destroy, :order => 'display_order'
   has_many :grants,         :through => :citations, :source => :grant,        :conditions => "citations.activity_type = 'Grant'"
   has_many :publications,   :through => :citations, :source => :publication,  :conditions => "citations.activity_type = 'Publication'"  
   has_many :presentations,  :through => :citations, :source => :presentation, :conditions => "citations.activity_type = 'Presentation'"

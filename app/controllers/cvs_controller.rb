@@ -65,7 +65,8 @@ class CvsController < ApplicationController
     respond_to do |format|
       if @cv.update_attributes(params[:cv])
         flash[:notice] = 'Cv was successfully updated.'
-        format.html { redirect_to(cvs_path) }
+        # format.html { redirect_to(cvs_path) }
+        format.html{ redirect_to :action => "edit"}
         format.js   { render :json => {:status => :ok}.to_json }
         format.xml  { head :ok }
       else

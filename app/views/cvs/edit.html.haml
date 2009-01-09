@@ -1,5 +1,5 @@
 - title_helper "Edit CV #{@cv.identifier}"
-- javascripts_helper "jquery.ui-1.5.3/jquery-1.2.6"
+- javascripts_helper "jquery.ui-1.5.3/jquery-1.2.6", "jquery.ui-1.5.3/ui/jquery.ui.all"
 
 - form_for(@cv) do |f|
   = f.error_messages
@@ -9,42 +9,54 @@
   %h3 Citations
   %ul#citations
     - for citation in @cv.citations
-      - fields_for "cv[existing_cs][]", citation do |cf|
+      - fields_for "cv[existing_cs][]", citation do |ef|
         %li
-          = citation.activity_type
+          = citation.activity.title
           = link_to "+", "#", :class => 'add', :style => "display:none;"
           = link_to "-", "#", :class => 'remove'
-          = cf.hidden_field :activity_id
-          = cf.hidden_field :activity_type
-          = cf.hidden_field :text
-          = cf.hidden_field :display_order
+          = ef.hidden_field :activity_id
+          = ef.hidden_field :activity_type
+          = ef.hidden_field :text
+          = ef.hidden_field :display_order, :class => 'order'
   %p
     = f.submit "Update"
-    = link_to 'Cancel', cvs_path
+    = link_to 'Cancel', cvs_path, :class => 'cancel'
 %br
 %p= link_to('Destroy', @cv, :confirm => 'Are you sure?', :method => :delete) if @cv.citations.blank?
 
 %h3 Activities
 %ul#activities
   - for activity in @activities
-    - fields_for "cv[new_cs][]", Citation.new do |cf|
+    - fields_for "cv[new_cs][]", Citation.new do |nf|
       %li
-        = activity.class.name
+        = activity.title
         = link_to "+", "#", :class => 'add'
         = link_to "-", "#", :class => 'remove', :style => "display:none;"
-        = cf.hidden_field :activity_id, :value => activity.id
-        = cf.hidden_field :activity_type, :value => activity.class.name
-        = cf.hidden_field :text
-        = cf.hidden_field :display_order
+        = nf.hidden_field :activity_id, :value => activity.id
+        = nf.hidden_field :activity_type, :value => activity.class.name
+        = nf.hidden_field :text
+        = nf.hidden_field :display_order, :class => 'order'
 
 
 - content_for :head do
   :javascript
     $(document).ready(function(){
       $('a.add').click(function(){
-        $('#citations').append($(this).hide().siblings('a.remove').show().end().parent('li'));
+        $('#citations').append($(this).hide().siblings('a.remove').show().end().parent('li')).reorder();
       });
       $('a.remove').click(function(){
-        $('#activities').append($(this).hide().siblings('a.add').show().end().parent('li'))
+        $('#activities').append($(this).hide().siblings('a.add').show().end().parent('li'));
+        $('#citations').reorder();
       });
+      $('#citations').sortable({
+        items:'li',
+        opacity: 0.5,
+        stop: sortStopped
+      });
+      function sortStopped(ev, ui){ // console.log($(ui.element).children('li'));
+        $(ui.element).reorder();
+      }
+      $.fn.reorder = function(){ // console.log('reorder');
+        $(this).children('li').each(function(i){ $(this).children(".order").val(i) });
+      }
     });
