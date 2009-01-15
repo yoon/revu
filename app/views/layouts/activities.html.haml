@@ -13,11 +13,14 @@
       #container
         #header
           %ul#tabs
-            %li= link_to_unless_current "CVs", cvs_path
-            %li= link_to_unless_current "Activities", activities_path
+            %li{:class => (@controller.controller_name == 'cvs' ? 'current' : nil) }= link_to_unless_current "CVs", cvs_path
+            %li{:class => (@controller.controller_name == 'activities' ? 'current' : nil) }= link_to_unless_current "Activities", activities_path
           #user-bar
             = render :partial => '/users/user_bar'
           %br.clear
         #content
+          #flash
+            .notice
+              = flash[:notice]
           %h1= @title
           = yield
