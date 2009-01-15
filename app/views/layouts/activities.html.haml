@@ -20,7 +20,8 @@
           %br.clear
         #content
           #flash
-            .notice
-              = flash[:notice]
+            - if flash[:notice]
+              .notice
+                = flash[:notice]
           %h1= @title
           = yield

@@ -12,8 +12,8 @@
       - fields_for "cv[existing_cs][]", citation do |ef|
         %li
           = citation.activity.title
-          = link_to "+", "#", :class => 'add', :style => "display:none;"
-          = link_to "-", "#", :class => 'remove'
+          = link_to(image_tag('plus.png', :alt => "+"), "#", :class => 'add', :style => "display:none;")
+          = link_to(image_tag('minus.png', :alt => "-"), "#", :class => 'remove')
           = ef.hidden_field :activity_id
           = ef.hidden_field :activity_type
           = ef.hidden_field :text
@@ -30,8 +30,8 @@
     - fields_for "cv[new_cs][]", Citation.new do |nf|
       %li
         = activity.title
-        = link_to "+", "#", :class => 'add'
-        = link_to "-", "#", :class => 'remove', :style => "display:none;"
+        = link_to(image_tag('plus.png', :alt => "+"), "#", :class => 'add')
+        = link_to(image_tag('minus.png', :alt => "-"), "#", :class => 'remove', :style => "display:none;")
         = nf.hidden_field :activity_id, :value => activity.id
         = nf.hidden_field :activity_type, :value => activity.class.name
         = nf.hidden_field :text

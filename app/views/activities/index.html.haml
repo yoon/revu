@@ -4,7 +4,7 @@
 - @activities.each do |group_name, activities|
   %h3
     = group_name
-    = link_to("+", new_activity_path(:activity_type => group_name.downcase.pluralize))
+    = link_to(image_tag('plus.png', :alt => "+"), new_activity_path(:activity_type => group_name.downcase.pluralize))
   %ul
     - for activity in activities
       %li= link_to activity.title, edit_activity_path(activity.class.name.downcase.pluralize, activity.identifier)

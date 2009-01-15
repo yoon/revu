@@ -52,4 +52,5 @@ body {
     padding-left: 200px; }
     #content #flash .notice {
       display: inline;
-      padding: 2px 5px; }
+      padding: 2px 5px;
+      background-color: orange; }
